@@ -18,7 +18,10 @@
 #X obj 476 219 hv.filter lowpass 20000 0.12;
 #X obj 476 248 hv.filter highpass 20 0.2;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X text 0 0 plugdatainfo <?xml version="1.0" encoding="UTF-8"?> <PlugDataInfo/>
+#X text 0 0 plugdatainfo <?xml version="1.0" encoding="UTF-8"?> <PlugDataInfo><InfoObj
+ID="16.7....rC.........A....." Updated="0" Segmented="0" Path="32.................F....H....fA....B....v....."/><InfoObj
+ID="16.8....vC.........B....." Updated="0" Segmented="0" Path="32.................H....T.....B....E....7....."/><InfoObj
+ID="16.6....3C.........A....." Updated="0" Segmented="0" Path="32.................V....jB...fE....o....vB...."/></PlugDataInfo>
 ;
 #X coords 0 1 100 -1 1 1 1;
 #X restore 0 0 graph;
@@ -45,8 +48,6 @@
 #X obj 573 407 <= 1;
 #X obj 644 405 > 1, f 4;
 #X obj 620 466 *;
-#X obj 1219 117 samplerate~;
-#X obj 1219 84 loadbang;
 #X obj 811 327 hv.filter allpass 20 0.2;
 #X obj 131 304 hv.filter allpass 20 0.2;
 #X obj 132 189 hv.filter highpass 1337 0.3;
@@ -58,11 +59,13 @@
 #X obj 689 767 r srate;
 #X obj 206 233 r srate;
 #X obj 891 244 r srate;
-#X obj 1221 170 s srate;
 #X obj 502 527 + 0.08;
+#X obj 803 63 samplerate~;
+#X obj 804 97 s srate;
+#X obj 803 29 loadbang;
 #X connect 0 0 11 0;
-#X connect 0 0 46 0;
-#X connect 0 0 47 0;
+#X connect 0 0 44 0;
+#X connect 0 0 45 0;
 #X connect 2 0 23 0;
 #X connect 3 0 36 0;
 #X connect 4 0 30 0;
@@ -70,7 +73,7 @@
 #X connect 9 0 13 0;
 #X connect 10 0 14 0;
 #X connect 11 0 16 0;
-#X connect 15 0 49 0;
+#X connect 15 0 47 0;
 #X connect 16 0 17 0;
 #X connect 17 0 9 0;
 #X connect 19 0 21 0;
@@ -101,24 +104,24 @@
 #X connect 36 0 38 0;
 #X connect 36 0 39 0;
 #X connect 36 0 40 0;
-#X connect 37 0 56 0;
+#X connect 37 0 53 0;
 #X connect 38 0 41 0;
 #X connect 38 0 41 1;
 #X connect 39 0 37 1;
 #X connect 40 0 38 1;
-#X connect 41 0 56 0;
-#X connect 42 0 55 0;
-#X connect 43 0 42 0;
-#X connect 44 0 10 0;
-#X connect 45 0 8 0;
-#X connect 46 0 50 0;
-#X connect 47 0 51 0;
-#X connect 48 0 24 0;
-#X connect 48 0 1 0;
-#X connect 49 0 48 0;
-#X connect 50 0 45 0;
-#X connect 51 0 44 0;
-#X connect 52 0 48 1;
-#X connect 53 0 50 1;
-#X connect 54 0 51 1;
-#X connect 56 0 9 1;
+#X connect 41 0 53 0;
+#X connect 42 0 10 0;
+#X connect 43 0 8 0;
+#X connect 44 0 48 0;
+#X connect 45 0 49 0;
+#X connect 46 0 24 0;
+#X connect 46 0 1 0;
+#X connect 47 0 46 0;
+#X connect 48 0 43 0;
+#X connect 49 0 42 0;
+#X connect 50 0 46 1;
+#X connect 51 0 48 1;
+#X connect 52 0 49 1;
+#X connect 53 0 9 1;
+#X connect 54 0 55 0;
+#X connect 56 0 54 0;

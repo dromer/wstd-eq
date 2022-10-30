@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  HVCC_VERSION: 2f8c795a206002a73a6609df285ff4ee78ac440a
+  HVCC_VERSION: 32575866874133608ffab7de17be46b046149d6d
 
 jobs:
   linux-x86_64:
@@ -24,7 +24,7 @@ jobs:
           python -m pip install git+https://github.com/Wasted-Audio/hvcc.git@${{ env.HVCC_VERSION }}
       - name: Build plugins
         run: |
-          hvcc wstd.eq-help.pd -n wstd.eq-help -m wstd.eq-help.json -o . -g dpf -p heavylib
+          hvcc wstd.eq-help.pd -n wstd.eq -m wstd.eq-help.json -o . -g dpf -p heavylib
           make WITH_LTO=true -j $(nproc)
       - name: Set sha8 (non-release)
         if: startsWith(github.ref, 'refs/tags/') != true
@@ -80,7 +80,7 @@ jobs:
           PKG_CONFIG: "false"
           WINEDEBUG: "-all"
         run: |
-          hvcc wstd.eq-help.pd -n wstd.eq-help -m wstd.eq-help.json -o . -g dpf -p heavylib
+          hvcc wstd.eq-help.pd -n wstd.eq -m wstd.eq-help.json -o . -g dpf -p heavylib
           make WITH_LTO=true -j $(nproc)
       - name: Set sha8 (non-release)
         if: startsWith(github.ref, 'refs/tags/') != true
@@ -135,7 +135,7 @@ jobs:
           CXXFLAGS: -arch x86_64 -arch arm64 -DMAC_OS_X_VERSION_MAX_ALLOWED=MAC_OS_X_VERSION_10_12 -mmacosx-version-min=10.12 -mtune=generic -msse -msse2
           LDFLAGS: -arch x86_64 -arch arm64 -mmacosx-version-min=10.12
         run: |
-          hvcc wstd.eq-help.pd -n wstd.eq-help -m wstd.eq-help.json -o . -g dpf -p heavylib
+          hvcc wstd.eq-help.pd -n wstd.eq -m wstd.eq-help.json -o . -g dpf -p heavylib
           make NOOPT=true WITH_LTO=true -j $(sysctl -n hw.logicalcpu)
           ./dpf/utils/package-osx-bundles.sh
 
